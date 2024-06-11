@@ -10,7 +10,10 @@ require("./database/client").checkConnection();
 const app = require("./app/config");
 
 // Get the port from the environment variables
-const port = process.env.APP_PORT;
+const port = process.env.APP_PORT || 3000;
+app.get = (req, res) => {
+  res.send("Welcome to Wild Series!");
+};
 
 // Start the server and listen on the specified port
 app
@@ -20,3 +23,23 @@ app
   .on("error", (err) => {
     console.error("Error:", err.message);
   });
+
+/*
+const express = require('express');
+const dotenv = require('dotenv');
+// Charger les variables d'environnement
+dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Définir la route GET /
+app.get('/', (req, res) => {
+    res.send('Welcome to Wild Series!');
+});
+
+// Démarrer le serveur
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
+*/
