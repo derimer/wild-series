@@ -26,7 +26,14 @@ const programs = [
 // Declare the action
 
 const browse = (req, res) => {
-  res.json(programs);
+  if (req.query.q != null) {
+    const filteredyears = programs.filter((year) =>
+      year.synopsis.includes(req.query.q)
+    );
+    res.json(filteredyears);
+  } else {
+    res.json(programs);
+  }
 };
 
 // Export it to import it somewhere else
