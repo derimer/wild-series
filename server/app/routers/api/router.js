@@ -11,10 +11,14 @@ const sayWelcome = (req, res) => {
 
 router.get("/", sayWelcome);
 const itemsRouter = require("./items/router");
+
 const programsRouter = require("./programs/router");
+
+const categoriesRouter = require("../categories/router");
 
 router.use("/items", itemsRouter);
 router.use("/programs", programsRouter);
+router.use("/categories", categoriesRouter);
 /* ************************************************************************* */
 
 module.exports = router;
