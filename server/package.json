@@ -24,7 +24,7 @@
     "supertest": "^7.0.0"
   },
   "lint-staged": {
-    "*.sql": "prettier --check",
-    "*.js": "eslint --report-unused-disable-directives"
+    "*.js": "prettier --check",
+    "*.sql": "prettier --check"
   }
 }
